@@ -1,5 +1,1 @@
-function sayHello(name: string) {
-  console.log("Hello, " + name + "!");
-}
-
-sayHello("TypeScript");
+import './hw-lesson-2/index.js'
