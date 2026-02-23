@@ -37,6 +37,7 @@
 //  2. Перепишіть сигнатуру методу updateField. Він не повинен затінювати параметр класу.
 //  3. Також метод updateField повинен приймати лише існуючі ключі з data та сумісні з ними значення.
 
+
 // 1.
 const updateProperty = <T extends object, K extends keyof T>(
   obj: T,
