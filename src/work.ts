@@ -1,37 +1,25 @@
-// 1.
-const updateProperty = <T extends object, K extends keyof T>(
-  obj: T,
-  key: K,
-  value: T[K],
-): T => {
-  const copyObj = structuredClone(obj);
-  copyObj[key] = value;
-  return copyObj;
-};
+// Branded Type
+const brend: unique symbol = Symbol("__brand");
+type Brend<T, V extends string> = T & { [brend]: V }
 
-// 2.
-type EventNameType = "click" | "scroll" | "purchase";
-interface IEventPayloads {
-  click: { x: number; y: number };
-  scroll: { offset: number };
-  purchase: { itemId: string; amount: number };
-}
-class AnalyticsTracker<
-  T extends EventNameType,
-  U extends IEventPayloads[T] = IEventPayloads[T],
-> {
-  track(eventName: T, payload: U): void {}
-}
-
-// 3.
-class FormProcessor<T extends object = {}> {
-  public data: T;
-
-  constructor(data: T) {
-    this.data = data;
-  }
-
-  public updateField<K extends keyof T>(key: K, value: T[K]): void {
-    this.data[key] = value;
+type ProductId = Brend<string,'ABC'>
+function assertValue(value:string): asserts value is  ProductId{
+  if(!value.startsWith('ABC') || value.length !== 8){
+    throw new Error('Invalid ProductId')
   }
 }
+
+function func(value: ProductId): ProductId{
+  return  value
+}
+
+const productId = 'ABC12345' 
+assertValue(productId)
+func(productId)
+
+const a=[6,7].at(0) // 6
+const b=[6,7].at(1) // 7
+const c=[6,7].at(-1) // 7
+const d=[6,7].at(-2) // 6
+const e = [6, 7].at(-3) // undefined
+const f = [6, 7].at(2) // undefined

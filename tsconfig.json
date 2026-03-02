@@ -12,6 +12,8 @@
     "strictPropertyInitialization": true,
     "noUncheckedIndexedAccess": true,
     "noPropertyAccessFromIndexSignature": true,
+    "strictFunctionTypes": true,
+    // "experimentalDecorators": true,
     // "noImplicitReturns": true,                          /* Enable error reporting for expressions and declarations with an implied 'any' type. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
